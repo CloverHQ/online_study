@@ -10,7 +10,7 @@ import json
 from urllib import parse
 
 from exp.cryption.prpcrypt import prpcrypt
-from exp.edu_online_study import commit_online_study
+from exp.edu_online_study import commit_online_study, common_main
 
 '''
     模拟登陆
@@ -90,5 +90,5 @@ def decrypt(str):
 
 if __name__ == '__main__':
     # 获取登陆状态
-    session = mockLogin('输入学号')
-    commit_online_study(session)
+    session = mockLogin('请输入学号')
+    common_main(session)

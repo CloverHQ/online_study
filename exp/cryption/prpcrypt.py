@@ -14,6 +14,7 @@ BS = AES.block_size
     处理加密数据
 '''
 
+
 def pad(s):
     return s + (BS - len(s) % BS) * chr(BS - len(s) % BS)
 
