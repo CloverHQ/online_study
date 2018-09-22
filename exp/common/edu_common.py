@@ -4,27 +4,42 @@
 # @Author  : liuwenchao
 # @File    : edu_common.py
 # @Software: PyCharm
+from mimetypes import init
 from urllib import parse
 import requests
+
+from exp.common.common_interface import common_tool
 
 course_type = 'other_course'
 
 
-def get_content_ids(session, cus_id):
-    data = session.get(
-        'http://www.wencaischool.com/openlearning/course/learning/learn_course.jsp?course_id=' + cus_id)
-    html = data.text
-    html_split = html.split('appendBlockHTML')
-    content_ids = html_split[len(html_split) - 1].split('javascript:learnSco')
-    return content_ids
+class online_study(common_tool):
+    def __init__(self, session, cus_id):
+        self.session = session
+        self.cus_id = cus_id
+
+    def get_content_ids(self):
+        data = self.session.get(
+            'http://www.wencaischool.com/openlearning/course/learning/learn_course.jsp?course_id=' + self.cus_id)
+        html = data.text
+        html_split = html.split('appendBlockHTML')
+        content_ids = html_split[len(html_split) - 1].split('javascript:learnSco')
+        return content_ids
+
+    def get_content_id(self, content_ids, id):
+        content_id = content_ids[id][1:8]
+        return content_id
 
 
-def get_content_id(content_ids,id):
-    content_id = content_ids[id][1:8]
-    return content_id
+class exam_study(common_tool):
+    def get_content_ids(self):
+        pass
+
+    def get_content_id(self, content_ids, id):
+        pass
 
 
-def get_folder_id(content_ids,id):
+def get_folder_id(content_ids, id):
     return content_ids[id][26:33]
 
 
@@ -35,8 +50,10 @@ def get_item_ids(session, cus_id, content_id, folder_id):
     item_ids = item_id_html.text.split('organHandle.')
     return item_ids
 
+
 def get_item_id():
     pass
+
 
 def get_require_data(session, cus_id, content_id, folder_id):
     table_index = 'http://www.wencaischool.com/openlearning/scorm/scoplayer/?course_id=' + cus_id + '&content_id=' + content_id + '&urlto=index_sco.jsp?content_id=' + content_id + '&returl=../../course/learning/learn_course.jsp?course_id=' + cus_id + '&folder_id=' + folder_id + '&0.8562334125165616'
