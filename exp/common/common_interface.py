@@ -6,6 +6,9 @@
 # @Software: PyCharm
 
 class common_tool():
+    def __init__(self, session, cus_id):
+        self.session = session
+        self.cus_id = cus_id
 
     def get_content_ids(self):
         pass

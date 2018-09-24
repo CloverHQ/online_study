@@ -11,7 +11,19 @@
 import random
 
 from exp.common.edu_common import *
-from exp.enum.lesson_status import lesson_status
+from exp.lesson_enum.lesson_status import lesson_status
+
+
+'''
+    lesson_status是否完成 :
+        incompleted：未完成
+        completed ： 完成
+    total_time总用时 ：建议使用60-70随机数
+    score_max得分数：一般一节课分数为10
+'''
+less_status = lesson_status.completed.value
+score_max = '10'
+
 
 commit_url = 'http://www.wencaischool.com/openlearning_sync/servlet/com.lemon.web.ActionServlet?handler=com.lemon.scorm.ScormWebServlet&op=commit_data&script=&_no_html=0&0.1363493101209915'
 
@@ -24,18 +36,6 @@ require_commit_data = {
     }
 
 
-'''
-    lesson_status是否完成 :
-        incompleted：未完成
-        completed ： 完成
-    total_time总用时 ：建议使用60-70随机数
-    score_max得分数：一般一节课分数为10
-'''
-
-
-less_status = lesson_status.completed.value
-score_max = '10'
-
 def commit_online_study(session, cus_id):
     common_tool = online_study(session, cus_id)
     content_ids = common_tool.get_content_ids()
@@ -45,7 +45,6 @@ def commit_online_study(session, cus_id):
         folder_id = get_folder_id(content_ids, id)
         if '学习' not in content_id_meta or '完成学习' in content_id_meta:
             continue
-        print(content_id)
         require_data = get_require_data(session, cus_id, content_id, folder_id)
         for rd in range(len(require_data)):
             require_data_i_ = require_data[rd]

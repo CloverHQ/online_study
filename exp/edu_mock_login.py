@@ -9,8 +9,9 @@ import requests
 import json
 from urllib import parse
 
+from exp.config import config
 from exp.cryption.prpcrypt import prpcrypt
-from exp.edu_online_study import common_main
+from exp.edu_main import common_main
 
 '''
     模拟登陆
@@ -90,5 +91,5 @@ def decrypt(str):
 
 if __name__ == '__main__':
     # 获取登陆状态
-    session = mockLogin('请输入账号')
+    session = mockLogin(config.user['student_num'])
     common_main(session)

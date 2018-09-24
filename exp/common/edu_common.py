@@ -14,9 +14,6 @@ course_type = 'other_course'
 
 
 class online_study(common_tool):
-    def __init__(self, session, cus_id):
-        self.session = session
-        self.cus_id = cus_id
 
     def get_content_ids(self):
         data = self.session.get(
@@ -32,12 +29,25 @@ class online_study(common_tool):
 
 
 class exam_study(common_tool):
-    def get_content_ids(self):
-        pass
+    def __init__(self, session, cus_id):
+        super().__init__(session, cus_id)
+        self.text = self.session.get(
+            'http://www.wencaischool.com/openlearning/course/learning/learn_homework.jsp?course_id=' + self.cus_id).text
+        self.ids = self.text.split('ExamId=\\')
 
-    def get_content_id(self, content_ids, id):
-        pass
+    def get_ids(self):
+        return self.ids
 
+    def get_content_id(self, content_ids, index):
+        return content_ids[index][21:28]
+
+    def get_exam_id(self, exam_ids, index):
+        return exam_ids[index][1:6]
+
+    def get_score_ids(self, exam_id, content_id):
+        score_id_resp = self.session.get(
+            'http://www.wencaischool.com/openlearning/exam/portal/exam_info.jsp?exam_id='+exam_id+'&type=work&content_id='+content_id+'&type=work&is_make_up=undefined').text
+        return score_id_resp
 
 def get_folder_id(content_ids, id):
     return content_ids[id][26:33]
