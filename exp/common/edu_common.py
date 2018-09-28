@@ -4,7 +4,6 @@
 # @Author  : liuwenchao
 # @File    : edu_common.py
 # @Software: PyCharm
-from mimetypes import init
 from urllib import parse
 import requests
 

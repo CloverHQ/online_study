@@ -8,21 +8,12 @@
 '''
     提交数据
 '''
-import random
 
 from exp.common.edu_common import *
-from exp.lesson_enum.lesson_status import lesson_status
+from exp.config.config import lesson
 
-
-'''
-    lesson_status是否完成 :
-        incompleted：未完成
-        completed ： 完成
-    total_time总用时 ：建议使用60-70随机数
-    score_max得分数：一般一节课分数为10
-'''
-less_status = lesson_status.completed.value
-score_max = '10'
+less_status = lesson['less_status']
+score_max = lesson['score_max']
 
 
 commit_url = 'http://www.wencaischool.com/openlearning_sync/servlet/com.lemon.web.ActionServlet?handler=com.lemon.scorm.ScormWebServlet&op=commit_data&script=&_no_html=0&0.1363493101209915'
@@ -65,7 +56,7 @@ def commit_online_study(session, cus_id):
             if 'coursewareId' in id:
                 txtCoursewareId = id[14:19]
             elif 'itemId' in id:
-                total_time = random.randint(62, 70)
+                total_time = lesson['total_time']
                 index = id.find('=')
                 txtItemId = id[index + 2:index + 9]
                 data = {
