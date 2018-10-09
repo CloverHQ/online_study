@@ -47,7 +47,6 @@ def commit_exam(session, cus_id=None):
         answers = json.loads(p.decrypt(session.post('http://www.wencaischool.com/openlearning/exam_and_task_list.action?req=getItemList',
                                    exam_data).json()['data']))['mallInfoList']
         for answer in answers:
-            print(answer)
             da = answer['smallItemAnswer']
             for i in da:
                 real_content = i['optionContent']
