@@ -75,10 +75,7 @@ def mockLogin(userName, passWord='123456'):
     return session
 
 
-key = '5165325946459632'  # key
-iv = '8655624543959233'  # iv向量
-p = prpcrypt(key=key, iv=iv)
-
+p = prpcrypt()
 
 def encrypt(str):
     return p.encrypt(str)
