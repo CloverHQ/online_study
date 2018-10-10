@@ -10,7 +10,7 @@
 '''
 
 from exp.common.edu_common import *
-from exp.config.config import lesson
+from exp.config.config import lesson_config as lesson
 
 less_status = lesson['less_status']
 score_max = lesson['score_max']

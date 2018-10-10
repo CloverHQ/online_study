@@ -88,5 +88,5 @@ def decrypt(str):
 
 if __name__ == '__main__':
     # 获取登陆状态
-    session = mockLogin(config.user['student_num'])
+    session = mockLogin(config.user_config['student_num'])
     common_main(session)

@@ -8,8 +8,7 @@ from urllib import parse
 import requests
 
 from exp.common.common_interface import common_tool
-
-course_type = 'other_course'
+from exp.config.config import type_config
 
 
 class online_study(common_tool):
@@ -76,5 +75,5 @@ def get_course_id(session):
     less_url = 'http://www.wencaischool.com/openlearning/console/course_list.jsp?0.4014251926637836'
     less_resp = session.get(url=less_url)
     data_json = less_resp.json()
-    list = data_json[course_type]
+    list = data_json[type_config['course_type']]
     return list

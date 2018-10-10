@@ -11,8 +11,18 @@ from exp.lesson_enum.lesson_status import lesson_status
 '''
     学号设置
 '''
-user = {
+user_config = {
     'student_num': '',
+}
+
+'''
+    配置课程类型：
+                other_course
+                course
+            
+'''
+type_config = {
+    'course_type': 'other_course'
 }
 
 '''
@@ -23,13 +33,16 @@ user = {
         total_time总用时 ：建议使用60-70随机数
         score_max得分数：一般一节课分数为10
 '''
-lesson = {
+lesson_config = {
     'less_status': lesson_status.completed.value,
     'score_max': '10',
     'total_time': random.randint(62, 70)
 }
 
-encrypt_data = {
-    'key':'',
-    'iv':''
+'''
+    配置AES的key和iv向量
+'''
+encrypt_data_config = {
+    'key': '',
+    'iv': ''
 }

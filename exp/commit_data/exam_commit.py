@@ -21,16 +21,16 @@ data = {
 p = prpcrypt()
 
 exam_data = {
-    'exam_id': '4G+dyUAqycs/crL+5gdBqQ==',
+    'exam_id': '',
+    'course_id': '',
+    'grade_code': '',
+    'school_code': '',
+    'user_id': '',
     'course_code': '/ncH5eQsozFMnwXW8vbnPA==',
     'current_version': 'NP+8bj8lCd3z8G0u4OZcGA==',
-    'course_id': 'O7yEER+HoF9gnCnfZGp2Dw==',
-    'grade_code': 'opn+imW9SwzspNlUQaX8rQ==',
     'app_release': 'nOqVkA13Jv74+ugChBaZFg==',
     'exam_status': 'P9UdazN874Ud/dXSFB15bA==',
-    'phone_type': 'mQ1mB1fHcgoWRJNXMOtUyw==',
-    'school_code': 'ClGZwbT7VpV/QiGkVZRmwQ==',
-    'user_id': 'U8HXCWeSqbEwFCsFmPPDNymbfaH7iHOaTLRvS0Am0KY=',
+    'phone_type': 'mQ1mB1fHcgoWRJNXMOtUyw=='
 }
 
 

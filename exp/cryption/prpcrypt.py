@@ -8,7 +8,7 @@ import requests
 from Crypto.Cipher import AES
 import base64
 
-from exp.config.config import encrypt_data
+from exp.config.config import encrypt_data_config as encrypt_data
 
 BS = AES.block_size
 
