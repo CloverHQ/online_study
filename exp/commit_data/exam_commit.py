@@ -6,8 +6,6 @@
 # @Software: PyCharm
 import json
 
-import requests
-
 from exp.commit_data.online_study_commit import require_commit_data
 from exp.common.edu_common import exam_study
 from exp.cryption.prpcrypt import prpcrypt
@@ -59,8 +57,4 @@ def commit_exam(session, cus_id=None):
                 real_key = i['myOptionKey']
                 data[real_key] = real_content
         url = 'http://www.wencaischool.com/openlearning/servlet/com.lemon.web.ActionServlet?handler=com.lemon.learning.exam.StudentExamAction&op=submit_exam&exam_id=' + exam_id + '&b_out=1&item_id=&_no_html=1&r=0.5873010551516843&88560'
-        print(session.post(url, data).text)
-
-
-if __name__ == '__main__':
-    commit_exam(requests)
+        session.post(url, data)
