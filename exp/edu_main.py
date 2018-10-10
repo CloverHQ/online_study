@@ -17,6 +17,6 @@ def common_main(session):
             continue
         print(list[i]['courseName'] + '[数据提交中......]')
         main = commit_main(session,cus_id)
-        main.commit_exam()
         main.commit_online_study()
+        main.commit_exam()
         print(list[i]['courseName'] + '[提交完毕]')
