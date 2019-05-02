@@ -46,3 +46,9 @@ encrypt_data_config = {
     'key': '',
     'iv': ''
 }
+
+exam_require_data = {
+    'user_id': '',
+    'user_school_code': '10466',
+    'cur_grade_code': '20180',
+}

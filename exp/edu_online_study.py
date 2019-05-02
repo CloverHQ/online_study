@@ -21,6 +21,7 @@ class commit_main():
     def commit_exam(self):
         return commit_exam(self.session, self.cus_id)
 
+
     def commit_online_study(self):
         return commit_online_study(self.session, self.cus_id)
 
