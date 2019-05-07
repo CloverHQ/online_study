@@ -43,7 +43,7 @@ def commit_exam(session, cus_id=None):
         exam_data['exam_id'] = p.encrypt(exam_id)
         exam_data['course_id'] = p.encrypt(cus_id)
         exam_data['grade_code'] = p.encrypt(exam_require_data['cur_grade_code'])
-        exam_data['user_id'] = p.encrypt(exam_require_data['user_id'])
+        exam_data['user_id'] = exam_require_data['user_id']
         exam_data['school_code'] = p.encrypt(exam_require_data['user_school_code'])
         session.post(
             'http://www.wencaischool.com/openlearning/exam_and_task_list.action?req=getItemTypeTotalCount',
